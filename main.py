@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from aiogram import Bot, Dispatcher, types
-from aiogram.types import ParseMode
+from aiogram.enums import ParseMode
 import asyncio
 import uvicorn
 import os
