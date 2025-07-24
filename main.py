@@ -6,8 +6,9 @@ import uvicorn
 import os
 
 # === НАСТРОЙКИ ===
-TELEGRAM_BOT_TOKEN = "8091926157:AAGCNLeSz3D7t7Vj82ERQkbnEtKpk5rhmqE"
-TELEGRAM_CHAT_ID = "-1002651239870"
+
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 dp = Dispatcher(bot)
