@@ -42,7 +42,7 @@ async def jira_webhook(request: Request):
 
     # Определяем, создание задачи или обновление
     webhook_event = data.get("webhookEvent", "")
-    action_type = "📢 <b>Новый проект!</b> \n" if "jira:issue_created" in webhook_event else "📢 <b>Обновление статуса!</b> "
+    action_type = "📢 <b>Новый проект!</b> \n" if "jira:issue_created" in webhook_event else "📢 <b>Обновление статуса!</b> \n"
 
     text = (
         f"{action_type}\n"
