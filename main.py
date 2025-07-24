@@ -51,7 +51,7 @@ async def jira_webhook(request: Request):
         f"💰 <b>Оплата:</b> {payment} $\n"
         f"🗓 <b>Начало:</b> {start_date}\n"
         f"⏳ <b>Дедлайн:</b> {deadline}\n"
-        f"📎 <a href='{url}'>Ссылка на задачу</a>\n\n"
+        f"📎 <b><a href='{issue_url}'>Ссылка на задачу</a></b>\n"
         f"{status_icon} <b>Статус:</b> {status}"
     )
 
