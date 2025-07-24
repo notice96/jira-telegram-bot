@@ -11,6 +11,7 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 bot = Bot(token=TELEGRAM_BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 
+
 @app.post("/jira/webhook")
 async def jira_webhook(request: Request):
     data = await request.json()
@@ -39,8 +40,12 @@ async def jira_webhook(request: Request):
     else:
         status_icon = "⚪️"
 
+    # Определяем, создание задачи или обновление
+    webhook_event = data.get("webhookEvent", "")
+    action_type = "📢 <b>Новый проект!</b> " if "jira:issue_created" in webhook_event else "📢 <b>Обновление статуса!</b> "
+
     text = (
-        "📢 <b>Новый проект!</b> \n"
+        f"{action_type}\n"
         f"🔹 <b>Название:</b> {summary}\n"
         f"👨‍💻 <b>Исполнитель:</b> {assignee}\n"
         f"💰 <b>Оплата:</b> {payment} $\n"
