@@ -25,7 +25,7 @@ async def jira_webhook(request: Request):
     payment = fields.get("customfield_10389", "—")
     assignee = fields.get("customfield_10388", "—")
     status = fields.get("status", {}).get("name", "—")
-    url = f"https://top-x-team-team.atlassian.net/browse/{key}"
+    issue_url = f"https://top-x-team-team.atlassian.net/browse/{key}"
 
     # Цветной кружок по статусу
     status_upper = status.upper()
